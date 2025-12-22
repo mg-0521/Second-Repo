@@ -1,0 +1,266 @@
+/* ============================================================
+   GLOBAL RESET
+   Removes default browser spacing + enables proper sizing
+=============================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main background container */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #75b9a3, #0b8d7c);
+  padding-top: 10px;
+}
+
+/* White card area for To-do app */
+.to-do-list {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 7px;
+  padding: 40px 30px 70px;
+  margin: 100px auto 20px;
+  box-shadow: 5px 5px 5px #ccc;
+}
+
+/* Title image styling */
+.to-do-list h2 img {
+  width: 50px;
+  height: 45px;
+}
+
+.to-do-list h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #002765;
+  font-size: 5vmin;
+}
+
+/* Input container */
+.inputFeild {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Input box */
+#myInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 3vmin;
+  background: transparent;
+  padding: 10px;
+}
+
+/* Add button */
+#addBtn {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 16px 50px;
+  font-size: 3vmin;
+  cursor: pointer;
+  background: #429180;
+  color: white;
+  transition: 0.3s;
+}
+
+#addBtn:hover {
+  background: #6eacaa;
+}
+
+/* UL container */
+ul {
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+/* TASK STYLE */
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*  checkbox image (unchecked) */
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-image: url(image/unchecked-box.svg);
+  background-size: cover;
+  background-position: center;
+  top: 10px;
+  left: 10px;
+}
+
+/* DELETE + EDIT BUTTONS */
+ul li span {
+  position: absolute;
+  color: #555;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+ul li span:hover {
+  background: #d4d1d1;
+}
+
+/* Completed task style */
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+/* Completed checkbox image */
+ul li.checked::before {
+  background-image: url(image/checkbox.svg);
+}
+
+/* Edit button style */
+ul li span.editBtn {
+  right: 40px;
+  font-size: 20px;
+}
+
+
+
+/* -------------------------------------- */
+/* 📱 MOBILE RESPONSIVE (All Phones)      */
+/* -------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+  .to-do-list {
+    max-width: 300px;
+    padding: 25px 20px 50px;
+    margin: 40px 15px;
+  }
+
+  #myInput {
+    font-size: 14px;
+  }
+
+  #addBtn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 14px;
+    padding: 12px 8px 12px 45px;
+  }
+
+  ul li::before {
+    height: 22px;
+    width: 22px;
+    top: 11px;
+  }
+
+  ul li span,
+  ul li span.editBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  ul li span.editBtn {
+    right: 35px;
+  }
+}
+
+/* ========================================
+   📱 Extra Small Screens max-width: 400px
+   ======================================= */
+@media only screen and (max-width: 400px) {
+
+  /* Reduce width of main card */
+  .to-do-list {
+    max-width: 250px;
+    padding: 18px 15px 35px;
+    margin: 25px auto;
+  }
+
+  /* Smaller title + icon */
+  .to-do-list h2 {
+    font-size: 16px;
+  }
+
+  .to-do-list h2 img {
+    width: 30px;
+    height: 28px;
+  }
+
+  /* Shrink input row */
+  .inputFeild {
+    padding-left: 10px;     /* smaller left padding */
+    gap: 5px;               /* small gap between input & button */
+  }
+
+  /* Smaller input */
+  #myInput {
+    padding: 6px;
+    font-size: 11px;
+    flex: 1;
+    min-width: 0;           /* prevents stretching */
+  }
+
+  /* Smaller add button */
+  #addBtn {
+    padding: 8px 12px;
+    font-size: 11px;
+    white-space: nowrap;   /* keeps Add text in one line */
+  }
+
+  /* Task item text smaller */
+  ul li {
+    font-size: 11px;
+    padding: 10px 8px 10px 38px;
+  }
+
+  /* Checkbox smaller */
+  ul li::before {
+    height: 16px;
+    width: 16px;
+    top: 10px;
+  }
+
+  /* Icons smaller */
+  ul li span,
+  ul li span.editBtn {
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
+    line-height: 23px;
+    top: 5px;
+  }
+
+  /* Edit button left spacing */
+  ul li span.editBtn {
+    right: 28px;
+  }
+}
+
